@@ -1,5 +1,5 @@
 #include "Faction.h"
-
+class Vaisseau;
 Faction::Faction(int _attaque, int _defense, int _vie, int _capacite) : nom("maFaction")
 {
 	attaque = _attaque;
@@ -21,6 +21,23 @@ Faction::~Faction()
 {
 	//rien
 }
+int Faction::GetAtt()
+{
+	return attaque;
+}
+int Faction::GetDef()
+{
+	return defense;
+}
+int Faction::GetVie()
+{
+	return vie;
+}
+int Faction::GetCapacite()
+{
+	return capacite;
+}
+
 std::string Faction::GetNom()
 {
 	return nom;

@@ -1,10 +1,15 @@
 #pragma once
-#include "Vaisseau.h"
+
+#include "Vaisseau.h";
+
+
 class VaisseauTransport : public Vaisseau
 {
 public:
 	VaisseauTransport(std::string _nom);
-	~VaisseauTransport();
-	virtual std::string to_string();
+	VaisseauTransport(Faction* _faction);
+	VaisseauTransport(Faction* _faction, int _niveau, int _experience);
+	~VaisseauTransport() override;
+	std::string to_string() override;
 };
 

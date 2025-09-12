@@ -1,7 +1,5 @@
 #pragma once
-
 #include <string>
-using std::string;
 
 class Faction
 {
@@ -15,7 +13,11 @@ protected:
 public:
 	Faction();
 	Faction(int _attaque, int _defense, int _vie, int _capacite);
-	~Faction();
+	int GetAtt();
+	int GetDef();
+	int GetVie();
+	int GetCapacite();
+	virtual ~Faction();
 	std::string GetNom();
 	virtual std::string to_string();
 

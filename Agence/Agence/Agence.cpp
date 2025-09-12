@@ -2,32 +2,55 @@
 //
 
 #include <iostream>
+#include <ctime>
 #include "Faction.h"
-#include "FactionRouge.h"
 #include "FactionBleu.h"
+#include "FactionRouge.h"
+#include "FactoryVaisseau.h"
+#include "Station.h"
+#include "Utilitaire.h"
 #include "Vaisseau.h"
 #include "VaisseauGuerre.h"
 #include "VaisseauLivraison.h"
 #include "VaisseauTransport.h"
+#include <string>
+using std::vector;
+
+
+
 
 int main()
 {
+
     std::cout << "Hello World!\n";
 
-    VaisseauGuerre monVaisseauGuerre( "Arthur" );
-    VaisseauLivraison monVaisseauLivraison("Larissa");
-    VaisseauTransport  monVaisseauTransport("Dallas");
+    srand(time(NULL));
+   
+    std::cout << "...production d'un vaisseau" << std::endl;
+    Vaisseau* monVaisseau = FactoryVaisseau::getRandomVaisseau();
+    std::cout << monVaisseau->to_string();
+    std::cout << "...production d'un vaisseau terminée" << std::endl;
 
-    FactionRouge maFactionRouge(5, 5, 5, 5);
-    FactionBleu maFactionBleu;
 
-    std::cout << "Hello " << maFactionRouge.GetNom() << " , tu es ma nouvelle faction rouge\n";
-    std::cout << "Hello " << maFactionBleu.GetNom() << " , tu es ma nouvelle faction bleu\n";
+    std::cout << "...production d'une station" << std::endl;
+    Station* station = new Station(100, 10);
+    std::cout << "...production d'une station terminée" << std::endl;
 
-    std::cout << "Hello, " << monVaisseauGuerre.to_string() << "\n";
-    std::cout << "Hello, " << monVaisseauLivraison.to_string() << "\n";
-    std::cout << "Hello, " << monVaisseauTransport.to_string() << "\n";
+    station->init();
+    std::cout << "la station compte " << station->getVaisseauDispo().size() << " vaisseau(x) " << std::endl;
 
+    station->ajouterVaisseau(monVaisseau);
+    std::cout << "la station compte " << station->getVaisseauDispo().size() << " vaisseau(x) " << std::endl;
+    //trouver comment afficher les infos de chaque vaisseau de la statio
+    vector<Vaisseau*> vecteurVaisseau(station->getVaisseauDispo());
+
+    for (auto it = vecteurVaisseau.begin(); it < vecteurVaisseau.end(); it++)
+    {
+        std::cout << (*it)->to_string() << std::endl;
+    }
+
+
+    delete monVaisseau;
     
 }
 

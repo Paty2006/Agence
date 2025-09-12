@@ -1,5 +1,6 @@
 #include "FactionBleu.h"
 
+
 FactionBleu::FactionBleu(int _attaque, int _defense, int _vie, int _capacite) : Faction( _attaque, _defense, _vie, _capacite)
 {
 	nom = "Bleu";
