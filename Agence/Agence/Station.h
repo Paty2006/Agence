@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
-class Vaisseau;
+#include "Vaisseau.h";
+using std::string;
 
 class Station
 {
@@ -15,6 +16,10 @@ public:
 	std::vector<Vaisseau*> getVaisseauDispo();
 	void init();
 	void ajouterVaisseau(Vaisseau* vaisseau);
-
+	void supprimerVaisseau(int index);
+	int getVie();
+	int getPlatinum();
+	void setPlatinum(int _platinum);
+	virtual std::string to_string();
 };
 

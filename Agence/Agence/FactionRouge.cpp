@@ -15,5 +15,5 @@ FactionRouge::~FactionRouge()
 }
 std::string FactionRouge::to_string()
 {
-	return "Je suis une faction rouge";
+	return Faction::to_string() + " rouge";
 }

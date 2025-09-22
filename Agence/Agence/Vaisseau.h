@@ -28,6 +28,8 @@ public:
 	int GetAtt();
 	int GetDef();
 	int GetVie();
+	std::string  GetNom();
+	int GetValeur();
 	virtual std::string to_string();
 
 };

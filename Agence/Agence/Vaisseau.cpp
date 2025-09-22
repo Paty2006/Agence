@@ -23,7 +23,8 @@ Vaisseau::Vaisseau(Faction* _faction) : Vaisseau(0,0,0,0,0,1,0)
 }
 Vaisseau::~Vaisseau()
 {
-	//rien
+	delete faction; 
+	faction = nullptr;
 }
 int Vaisseau::GetAtt()
 {
@@ -35,14 +36,24 @@ int Vaisseau::GetDef()
 	return defense;
 }
 
+int Vaisseau::GetValeur()
+{
+	return valeurMarchande;
+}
+
 int Vaisseau::GetVie()
 {
 	return vie;
 }
 
+std::string  Vaisseau::GetNom()
+{
+	return nom;
+}
 std::string Vaisseau::to_string()
 {
-	return "Je suis un vaisseau";
+	return  "|Attaque: " + std::to_string(attaque) + "| Defense: " + std::to_string(defense) + "| Vie: " + std::to_string(vie) +
+		"| Capacite:  " + std::to_string(capacite) + "| Niveau: " + std::to_string(niveau) + "| Experience: " + std::to_string(exp) + "|\n| Faction: " + faction->GetNom() + " |";
 }
 
 
